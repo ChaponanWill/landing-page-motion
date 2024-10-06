@@ -1,1 +1,1 @@
-export * from "./MotionTransition";
+export * from './MotionTransition'

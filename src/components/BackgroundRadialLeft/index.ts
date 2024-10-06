@@ -1,1 +1,1 @@
-export * from "./BackgroundRadialLeft";
+export * from './BackgroundRadialLeft'

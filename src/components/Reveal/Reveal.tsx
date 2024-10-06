@@ -1,30 +1,24 @@
-"use client"
-import { useAnimation, useInView, motion } from "framer-motion"
-import { useEffect, useRef } from "react"
+"use client";
+import { useEffect, useRef } from "react";
+import { useAnimation, useInView, motion } from "framer-motion";
 
-export function Reveal({ children }: { children: React.ReactNode }) {
-
-    const ref = useRef(null)
-    const isInView = useInView(ref, { once: false })
-    const mainControls = useAnimation()
-    const slideControls = useAnimation()
-
+function Reveal({ children }: { children: React.ReactNode }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false });
+    const mainControls = useAnimation();
+    const slideControls = useAnimation();
     useEffect(() => {
         if (isInView) {
-            mainControls.start("visible")
-            slideControls.start("visible")
+            mainControls.start("visible"), slideControls.start("visible");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isInView])
-
-
-
+    }, [isInView]);
     return (
-        <div ref={ref} className="relative overflow-hidden w-fit">
+        <div ref={ref} className="relative overflow-hidden w-fit ">
             <motion.div
                 variants={{
                     hidden: { opacity: 0, y: 75 },
-                    visible: { opacity: 1, y: 0 }
+                    visible: { opacity: 1, y: 0 },
                 }}
                 initial="hidden"
                 animate={mainControls}
@@ -36,11 +30,11 @@ export function Reveal({ children }: { children: React.ReactNode }) {
             <motion.div
                 variants={{
                     hidden: { left: 0 },
-                    visible: { left: "100%" }
+                    visible: { left: "100%" },
                 }}
                 initial="hidden"
                 animate={slideControls}
-                transition={{ duration: 0.5, ease: "easeIn" }}
+                transition={{ duration: 0.5, ease:"easeIn" }}
                 style={{
                     position: "absolute",
                     top: 4,
@@ -48,11 +42,11 @@ export function Reveal({ children }: { children: React.ReactNode }) {
                     left: 0,
                     right: 0,
                     background: "#6DE4E8",
-                    zIndex: 20
+                    zIndex: 20,
                 }}
-            >
-
-            </motion.div>
+            ></motion.div>
         </div>
-    )
+    );
 }
+
+export default Reveal;

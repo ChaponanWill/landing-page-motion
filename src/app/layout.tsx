@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
+    <html lang="es" className="text-[16px]">
       <body className={popinsFont.className}>{children}</body>
     </html>
   )
